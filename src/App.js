@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment, useState } from "react";
+import { BrowserRouter as Router, Route, Switch, Link, NavLink } from "react-router-dom";
 
+import Home from "./pages/Home";
+import CryptoPage from "./pages/Cryptopage";
+import SalePage from "./pages/SalePage";
+import NftPage from "./pages/NftPage";
 function App() {
+  const [coins, setCoins] = useState([]);
+  const [nftList, setNftList] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+          <Router>
+            <Switch>
+                <Route path="/" exact><Home setCoins={setCoins} setNftList={setNftList}/></Route>
+                <Route path="/cryptocurrency"> <CryptoPage coins={coins}/> </Route>
+                <Route path="/Sale" component={SalePage}/>
+                <Route path="/Nft"> <NftPage nftList={nftList}/> </Route>
+            </Switch>
+          </Router>
+    </Fragment>
   );
 }
 

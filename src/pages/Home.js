@@ -1,19 +1,16 @@
-import { Fragment, useState } from "react";
+import { Fragment} from "react";
 import HomePage from "../components/HomePage";
 import Header from "../components/Header";
-import Cryptocurrency from "../components/Cryptocurrency";
-import Load from "../components/Load";
-import Nft from "../components/Nft";
-import Sale from "../components/Sale";
 
 
 
-const Home = ({setCoins, setNftList}) => {
+
+const Home = ({crypto}) => {
   
   return (
     <Fragment>
       <Header />
-      <HomePage setCoins={setCoins} setNftList={setNftList}/>
+      <HomePage crypto={crypto}/>
     </Fragment>
   );
 };

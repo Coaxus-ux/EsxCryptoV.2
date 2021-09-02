@@ -5,7 +5,7 @@ const SalePage = () => {
     return ( 
         <div>
             <Header/>
-            <h1>Sale page</h1>
+            <Sale/>
         </div>
      );
 }

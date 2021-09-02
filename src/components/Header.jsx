@@ -2,7 +2,7 @@ import { Fragment, useEffect } from "react";
 import Logo from "../img/logo.svg";
 import { Link } from "react-router-dom";
 
-const Header = ({ setToHref }) => {
+const Header = () => {
   useEffect(() => {
     const burger = document.querySelectorAll(".navbar-burger");
     const menu = document.querySelectorAll(".navbar-menu");
@@ -113,7 +113,7 @@ const Header = ({ setToHref }) => {
           <li>
             <a
               className="font-bold text-base text-white hover:text-green-400"
-              onClick={(e) => setToHref(3)}
+
               href="/#"
             >
               Exchange
@@ -136,12 +136,14 @@ const Header = ({ setToHref }) => {
             </svg>
           </li>
           <li>
+          <Link to="/NFT">
             <a
               className="font-bold text-base text-green-400 hover:text-white"
               href="/#"
             >
-              <Link to="/NFT">NFT</Link>
+              NFT
             </a>
+          </Link>
           </li>
         </ul>
         <a
@@ -184,40 +186,45 @@ const Header = ({ setToHref }) => {
           <div>
             <ul>
               <li className="mb-1">
+              <Link to="/cryptocurrency">
                 <a
                   className="block p-4 text-sm font-semibold text-white hover:bg-gray-500 hover:text-green-400 rounded"
-                  onClick={(e) => setToHref(1)}
+     
                   href="/#"
                 >
                   Cryptocurrency
                 </a>
+                </Link>
               </li>
               <li className="mb-1">
+              <Link to="/Sale">
                 <a
                   className="block p-4 text-sm font-semibold text-white hover:bg-gray-500 hover:text-green-400 rounded"
-                  onClick={(e) => setToHref(2)}
                   href="/#"
                 >
                   Sale
                 </a>
+                </Link>
               </li>
               <li className="mb-1">
                 <a
                   className="block p-4 text-sm font-semibold text-white hover:bg-gray-500 hover:text-green-400 rounded"
-                  onClick={(e) => setToHref(3)}
+               
                   href="/#"
                 >
                   Exchange
                 </a>
               </li>
               <li className="mb-1">
+              <Link to="/NFT">
                 <a
                   className="block p-4 text-sm font-semibold text-green-400 hover:bg-gray-500 hover:text-white rounded"
-                  onClick={(e) => setToHref(4)}
+        
                   href="/#"
                 >
                   NFT
                 </a>
+                </Link>
               </li>
             </ul>
           </div>

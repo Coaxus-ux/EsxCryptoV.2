@@ -39,7 +39,10 @@ h1,h2,h3,h4,span{
   display: flex;
 }
 
-
+.bg-solid{
+	background: #31323f;
+  
+}
 
 #load {
   position:absolute;

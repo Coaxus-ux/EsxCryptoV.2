@@ -2,14 +2,11 @@ import { Fragment} from "react";
 import HomePage from "../components/HomePage";
 import Header from "../components/Header";
 
-
-
-
-const Home = ({crypto}) => {
+const Home = ({crypto,session}) => {
   
   return (
     <Fragment>
-      <Header />
+      <Header session={session}/>
       <HomePage crypto={crypto}/>
     </Fragment>
   );

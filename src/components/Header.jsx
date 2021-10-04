@@ -2,7 +2,7 @@ import { Fragment, useEffect } from "react";
 import Logo from "../img/logo.svg";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ session }) => {
   useEffect(() => {
     const burger = document.querySelectorAll(".navbar-burger");
     const menu = document.querySelectorAll(".navbar-menu");
@@ -63,12 +63,13 @@ const Header = () => {
         </div>
         <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
           <li>
-            <a
+            <Link
+              to="/Cryptocurrency"
               className="font-bold text-base text-white hover:text-green-400"
               href="/#"
             >
-              <Link to="/cryptocurrency">Cryptocurrency</Link>
-            </a>
+              Cryptocurrency
+            </Link>
           </li>
           <li className="text-gray-300">
             <svg
@@ -87,12 +88,13 @@ const Header = () => {
             </svg>
           </li>
           <li>
-            <a
+            <Link
+              to="/Sale"
               className="font-bold text-base text-white hover:text-green-400 "
               href="/#"
             >
-              <Link to="/Sale">Sale</Link>
-            </a>
+              Sale
+            </Link>
           </li>
           <li className="text-gray-300">
             <svg
@@ -111,13 +113,12 @@ const Header = () => {
             </svg>
           </li>
           <li>
-            <a
+            <Link
               className="font-bold text-base text-white hover:text-green-400"
-
-              href="/#"
+              to="/exchange"
             >
               Exchange
-            </a>
+            </Link>
           </li>
           <li className="text-gray-300">
             <svg
@@ -136,28 +137,38 @@ const Header = () => {
             </svg>
           </li>
           <li>
-          <Link to="/NFT">
-            <a
+            <Link
               className="font-bold text-base text-green-400 hover:text-white"
-              href="/#"
+              to="/NFT"
             >
               NFT
-            </a>
-          </Link>
+            </Link>
           </li>
         </ul>
-        <a
-          className=" hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
-          href="/#"
-        >
-          Sign In
-        </a>
-        <a
-          className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-          href="/#"
-        >
-          Sign up
-        </a>
+        {session ? (
+          <>
+            <div className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200">
+
+                <span className="mx-2 font-bold">Hello, bouzo</span>
+              
+            </div>
+          </>
+        ) : (
+          <>
+            <Link
+              className=" hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+              to="/Login"
+            >
+              Sign In
+            </Link>
+            <Link
+              className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+              to="/Register"
+            >
+              Sign up
+            </Link>
+          </>
+        )}
       </nav>
       <div className="navbar-menu relative z-50 hidden">
         <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
@@ -186,62 +197,55 @@ const Header = () => {
           <div>
             <ul>
               <li className="mb-1">
-              <Link to="/cryptocurrency">
-                <a
+                <Link
                   className="block p-4 text-sm font-semibold text-white hover:bg-gray-500 hover:text-green-400 rounded"
-     
-                  href="/#"
+                  to="/cryptocurrency"
                 >
                   Cryptocurrency
-                </a>
                 </Link>
               </li>
               <li className="mb-1">
-              <Link to="/Sale">
-                <a
+                <Link
                   className="block p-4 text-sm font-semibold text-white hover:bg-gray-500 hover:text-green-400 rounded"
                   href="/#"
+                  to="/Sale"
                 >
                   Sale
-                </a>
                 </Link>
               </li>
               <li className="mb-1">
                 <a
                   className="block p-4 text-sm font-semibold text-white hover:bg-gray-500 hover:text-green-400 rounded"
-               
                   href="/#"
                 >
                   Exchange
                 </a>
               </li>
               <li className="mb-1">
-              <Link to="/NFT">
-                <a
+                <Link
                   className="block p-4 text-sm font-semibold text-green-400 hover:bg-gray-500 hover:text-white rounded"
-        
                   href="/#"
+                  to="/NFT"
                 >
                   NFT
-                </a>
                 </Link>
               </li>
             </ul>
           </div>
           <div className="mt-auto">
             <div className="pt-6">
-              <a
+              <Link
                 className="block px-4 py-3 mb-3 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                href="/#"
+                to="/Login"
               >
                 Sign in
-              </a>
-              <a
+              </Link>
+              <Link
                 className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
-                href="/#"
+                to="Register"
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
             <p className="my-4 text-xs text-center text-gray-400">
               <span>Copyright esxCRYPTO ©2021</span>

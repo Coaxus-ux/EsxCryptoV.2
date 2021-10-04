@@ -1,10 +1,8 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 const Nft = ({ nftList }) => {
   let [isOpen, setIsOpen] = useState(false);
-
-  const [nftListClean, setNftListClean] = useState([]);
   function closeModal() {
     setIsOpen(false);
   }
@@ -12,17 +10,7 @@ const Nft = ({ nftList }) => {
   function openModal() {
     setIsOpen(true);
   }
-  useEffect(() => {
-    setNftListClean(
-      nftList.filter(function (el) {
-        return (
-          el.name !== null &&
-          el.description !== null &&
-          el.image_preview_url !== null
-        );
-      })
-    );
-  }, [setNftListClean, nftList]);
+  
 
   return (
     <div className="grid grid-cols-1 ms:grid-cols-3 md:grid-cols-3 2xl:grid-cols-5 gap-y-4 gap-x-4 ">
@@ -89,12 +77,12 @@ const Nft = ({ nftList }) => {
         </Dialog>
       </Transition>
 
-      {nftListClean.map((nft) => (
+      {nftList.map((nft) => (
         <div
           key={nft.id}
           className="overflow-hidden shadow-lg rounded-lg h-auto w-80 md:w-80 m-auto p-4  bg-indigo-50 "
         >
-          <div class="w-full block h-full ">
+          <div className="w-full block h-full ">
             <img
               alt="NFTPhoto"
               src={nft.image_preview_url}
@@ -117,14 +105,14 @@ const Nft = ({ nftList }) => {
               <div className="flex flex-wrap  justify-starts items-center mt-4 border-t-2 pt-5">
                 <div className="text-xs w-34 mx-3 py-1.5 px-4 bg-red-300 rounded-lg shadow-xs cursor-pointer hover:bg-red-500 hover:text-gray-100">
                   <button
-                    class="h-6 w-34 fill-current hover:text-gray-100 font-bold"
+                    className="h-6 w-34 fill-current hover:text-gray-100 font-bold"
                     onClick={openModal}
                   >
                     MORE
                   </button>
                 </div>
                 <div className="text-xs  font-bold w-48 py-1.5 shadow-xs bg-green-300 hover:bg-green-500 hover:text-gray-100 rounded-lg">
-                  <button class="h-6 w-48   hover:text-gray-100 font-bold ">
+                  <button className="h-6 w-48   hover:text-gray-100 font-bold ">
                     BUY
                   </button>
                 </div>
@@ -138,4 +126,3 @@ const Nft = ({ nftList }) => {
 };
 
 export default Nft;
-<h1>NFT</h1>;

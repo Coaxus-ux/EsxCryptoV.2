@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from '../components/Header'
 import Cryptocurrency from '../components/Cryptocurrency'
-const CryptoPage = ({coins}) => {
+const CryptoPage = ({coins, session}) => {
     return ( 
         <div>
-            <Header/>
+            <Header session={session}/>
             <Cryptocurrency coins={coins}/>
         </div>
      );
